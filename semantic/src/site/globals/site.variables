@@ -1,0 +1,12 @@
+@emSize   : 13px;
+@fontSize : 13px;
+@white            : #FFFFFF;
+@pageMinWidth     : 260px;
+@orange           : #22233D; 
+@invertedBackgroundColor: #0075A0;
+@primaryColor : @orange;
+@inputVerticalPadding   : @relative14px;
+@focusedFormBorderColor: @orange;
+@pageBackground      : #f2f5f7;
+@linkColor           : #006363;
+

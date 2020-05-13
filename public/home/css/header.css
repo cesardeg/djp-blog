@@ -1,0 +1,210 @@
+.header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 72px;
+}
+
+.header .logo {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 72px;
+    height: 72px;
+    z-index: 99;
+}
+
+.header.has-logo .logo {
+    background-image: url('../img/header/logo-primary.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.header .btn-menu {
+    position: absolute;
+    right: 20px;
+    top: 24px;
+    height: 24px;
+    width: 24px;
+    background-image: url('../img/header/menu-primary.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 99;
+}
+
+.header.clear .btn-menu {
+    background-image: url('../img/header/menu-white.svg');
+}
+
+.header .nav {
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    left: 100%;
+    margin: 0;
+    padding: 50px 20px;
+    background-color: rgba(34, 35, 61, 0.9);
+    color: #fff;
+    text-align: right;
+    list-style: none;
+    transition: left 0.25s ease-in;
+    z-index: 99;
+}
+
+.header .nav li {
+    font-family: 'Lora', serif;
+    padding: 12px 0;
+    border-bottom: 2px solid #255280;
+    text-transform: uppercase;
+}
+
+.header .nav li.active {
+    position: relative;
+    color: #52b4e7;
+}
+
+.header.show-menu .nav {
+    left: 0;
+}
+
+.header.show-menu .btn-menu {
+    position: fixed;
+    background-image: url('../img/header/close-white.svg');
+}
+
+@media (min-width: 760px) {
+    .header {
+        height: 132px;
+    }
+
+    .header.big-logo {
+        height: 182px;
+    }
+
+    .header .logo {
+        width: 132px;
+        height: 132px;
+        left: 50px;
+    }
+
+    .header.big-logo .logo{
+        top: 50px;
+    }
+
+    .header .btn-menu {
+        width: 32px;
+        height: 32px;
+        top: 50px;
+        right: 50px;
+    }
+
+    .header .nav {
+        padding: 92px 50px;
+    }
+
+    .header .nav li {
+        padding: 18px 0;
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1020px) {
+    .header .logo {
+        left: 120px;
+    }
+
+    .header .nav {
+        position: absolute;
+        padding: 0 80px;
+        height: 64px;
+        margin-top: 32px;
+        background-color: transparent;
+        color: #22233d;
+        line-height: 64px;
+        left: 0;
+        text-align: right;
+        z-index: 99;
+    }
+
+    .header.has-logo .nav {
+        background-color: rgba(241, 241, 241, 0.5);
+        z-index: 97;
+    }
+
+    .header.clear .nav {
+        color: #fff;
+    }
+
+    .header.has-logo.clear .nav {
+        background-color: rgba(34, 35, 61, 0.5);
+    }
+
+    .header .btn-menu {
+        display: none;
+    }
+
+    .header .nav li {
+        display: inline-block;
+        padding: 0;
+        border: 0;
+        margin-left: 16px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+    }
+
+    .header .nav li.hide-lg {
+        display: none;
+    }
+
+    .header .nav li.active::after {
+        content: "";
+        position: absolute;
+        width: 33px;
+        height: 11px;
+        bottom: 4px;
+        left: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-image: url('../img/arrows/top.png');
+        background-size: cover;
+    }
+
+}
+
+@media (min-width: 1330px) {
+    .header .nav li {
+        width: 198px;
+        margin: 0 9px;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 2440px) {
+    .header {
+        height: 216px;
+    }
+
+    .header.big-logo {
+        height: 286px;
+    }
+
+    .header .logo {
+        left: 216px;
+        width: 216px;
+        height: 216px;
+    }
+
+    .header.big-logo .logo {
+        top: 70px;
+    }
+
+    .header .nav {
+        margin-top: 70px;
+    }
+
+    .header .nav li {
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,90 @@
+
+.member {
+    box-sizing: border-box;
+    width: 174px;
+    padding: 0.1px;
+    margin: 48px auto 0;
+}
+
+.member::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.member > * {
+    float: left;
+}
+
+.member .member-image {
+    display: block;
+    position: relative;
+    width: 130px;
+    height: 130px;
+    margin: 22px 22px 30px 22px;
+    transform: rotate(-27deg);
+    overflow: hidden;
+    border-right: 4px solid #0075a0;
+    box-shadow: 4px 8px 0 0 #a4a4a4;
+}
+
+.member .member-image .image {
+    position: absolute;
+    top: -22px;
+    left: -22px;
+    width: 174px;
+    height: 174px;
+    transform: rotate(27deg);
+    background-size: cover;
+    background-position: center;
+    background-image: url('img/members/jose.jpg');
+}
+
+.member .member-text {
+    display: block;
+    width: 100%;
+    margin-top: 18px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 14px;
+}
+
+.member .member-text span {
+    display: inline-block;
+}
+
+.member .member-text .name {
+    font-family: 'Lora', serif;
+    color: #0075a0;
+}
+
+.member .member-text .position {
+    font-family: 'Open Sans', sans-serif;
+    color: #000000;
+}
+
+@media screen and (min-width: 760px) {
+    .member {
+        margin-top: 60px;
+    }
+}
+
+@media screen and (min-width: 1330px) {
+    .member {
+        width: 414px;
+        margin-top: 72px;
+    }
+
+    .member .member-text {
+        width: auto;
+        float: none ;
+        margin-top: 0;
+        transform: skewX(27deg);
+        text-align: left;
+        font-size: 18px;
+    }
+
+    .member .member-text span {
+        transform: skewX(-27deg);
+    }
+}
