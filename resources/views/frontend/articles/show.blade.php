@@ -59,8 +59,8 @@
         </header>
 
         <div class="article-content">
-         <div class="ui fluid image">
-                 <div class="ui big ribbon label z-index-top">
+         <div class="ui fluid {{ str_repeat('no-', !$article->article_image) . 'image' }}">
+                 <div class="ui ribbon label z-index-top">
                     <a href="{{ url('categories/'.$article->category->slug) }}" class="white-font">{{$article->category_name}}</a>
                 </div>
                 @if(Auth::check())
@@ -68,7 +68,9 @@
                   <i class="{{($article->isFavourite())? 'yellow active ': 'white '}}star icon"></i>
                 </a>
                 @endif
-               <img class="ui fluid image" src="{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder_640x480.png')}}" alt="picture">
+                @if($article->article_image)
+                <img class="ui fluid image" src="{{ url(config('blogger.filemanager.upload_path').'/'.$article->article_image) }}" alt="picture">
+                @endif
           </div>
           <h2>{{ $article->subtitle }}</h2>
           {!!html_entity_decode($article->html_content)!!}
@@ -109,7 +111,9 @@
             <div class="ui card">
               <div class="content content-limit">{{str_limit($article->title, $limit = 50, $end = '...')}}</div>
               <div class="image">
-                 <img class="ui image floated" src="{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder_640x480.png')}}" alt="picture" />
+                @if($article->article_image)
+                <img class="ui image floated" src="{{ url(config('blogger.filemanager.upload_path').'/'.$article->article_image) }}" alt="picture" />
+                @endif
               </div>
               <div class="content">
 
