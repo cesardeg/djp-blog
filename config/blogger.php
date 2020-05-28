@@ -67,7 +67,7 @@ return [
     | Defines admin email for contact form notifications
     |
      */
-    'admin_email' => 'cesar@pixan.io',
+    'admin_email' => env('MAIL_ADMIN', 'admin@example.com'),
 
     /*
     |--------------------------------------------------------------------------

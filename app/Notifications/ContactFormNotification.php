@@ -13,6 +13,8 @@ class ContactFormNotification extends Notification
 
     public $email;
     public $name;
+    public $city;
+    public $phone;
     public $contactMessage;
     /**
      * Create a new notification instance.
@@ -23,6 +25,8 @@ class ContactFormNotification extends Notification
     {
         $this->email = $request->input("email");
         $this->name = $request->input("name");
+        $this->city = $request->input("city");
+        $this->phone = $request->input("phone");
         $this->contactMessage = $request->input("message");
     }
 
@@ -50,6 +54,10 @@ class ContactFormNotification extends Notification
             ->line("[$this->name, $this->email] trató de contactarte.")
             ->line("Mensaje:")
             ->line($this->contactMessage)
+            ->line("Ciudad:")
+            ->line($this->city)
+            ->line("Teléfono:")
+            ->line($this->phone)
             ->from($this->email);
     }
 

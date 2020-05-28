@@ -6,8 +6,8 @@
         <title>Directorio Jurídico del Potosí</title>
         <link rel="stylesheet" href="{{ asset('home/css/normalize.css') }}">
         <link rel="stylesheet" href="{{ asset('home/css/swiper.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('home/css/index.css') }}">
-        <link rel="stylesheet" href="{{ asset('home/css/footer.css') }}">
+        <link rel="stylesheet" href="{{ asset('home/css/index.css?v=1') }}">
+        <link rel="stylesheet" href="{{ asset('home/css/footer.css?v=1') }}">
     </head>
     <body>
         <div class="header">
@@ -373,14 +373,16 @@
                             Ultimas noticias
                             <a href="{{ route('blog') }}">ir a blog</a>
                         </h2>
-                        <div class="news">
+                        <div class="news grid">
                             @foreach($articles as $article)
-                            <div class="new">
+                            <div class="new grid-item">
                                 <h4 class="title">{{ $article->title }}</h4>
                                 <p class="fade">
                                     {{ $article->content }}
                                 </p>
-                                <div class="img" style="background-image:url('{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder_640x480.png')}}')"></div>
+                                @unless(empty($article->image_url))
+                                <div class="img" style="background-image: url('{{ $article->image_url }}'"></div>
+                                @endunless
                                 <div class="separator">
                                     <small>{{ $article->published_at->format('d/m/Y') }}</small>
                                 </div>
@@ -389,7 +391,7 @@
                         </div>
                     </div>
                     <div class="col width-md-2 width-lg-2 width-xl-4 width-xxl-2" id="twitter">
-                        <a class="twitter-timeline" data-height="324" data-link-color="#0075a0" href="https://twitter.com/Twitter?ref_src=twsrc%5Etfw"
+                        <a class="twitter-timeline" data-height="324" data-link-color="#0075a0" href="https://twitter.com/AbogadosDjp"
                             data-chrome="noborders transparent">
                             Tweets by Twitter
                         </a>
@@ -405,7 +407,8 @@
                             <p>Sirvace de completar el siguiente formulario a fin de que nos pongamos en contacto con usted</p>
                         </div>
                     </div>
-                    <form class="row fieldset" action="#">
+                    <form class="row fieldset" action="{{ url('/contact') }}" method="post">
+                        {{ csrf_field() }}
                         <div class="row col width-md-3 width-lg-4 width-xl-6 width-xxl-8" id="col-1" no-padding>
                             <div class="col width-sm-2 width-md-3 width-lg-4 width-xl-6 width-xxl-4" padding-xxl>
                                 <div class="form-group">
@@ -431,7 +434,7 @@
                         <div class="col width-md-3 width-lg-4 width-xl-6 width-xxl-4">
                             <div class="form-group">
                                 <span class="icon" style="background-image: url('{{ asset('home/img/contact/ic_email.png') }}')"></span>
-                                <textarea name="body" rows="4" placeholder="Mensaje" id="textarea" required></textarea>
+                                <textarea name="message" rows="4" placeholder="Mensaje" id="textarea" required></textarea>
                             </div>
                         </div>
                         <div class="row" no-padding>
@@ -451,7 +454,7 @@
                             <div class="col width-xs-1 width-md-2 offset-lg-1 width-lg-2 offset-xl-2 width-xl-2 offset-xxl-0 width-xxl-2">
                                 <p class="form-group">
                                     <i class="icon" style="background-image: url('{{ asset('home/img/contact/ic_phone_white.png') }}')"></i>
-                                    <a href="tel:4442115186">(444) 211.51.86</a>
+                                    <a href="tel:4448125294">(444) 812.52.94</a>
                                 </p>
                             </div>
                             <div class="col width-xs-1 width-md-2 offset-lg-1 width-lg-2 offset-xl-1 width-xl-2 offset-xxl-0 width-xxl-2">
@@ -499,16 +502,11 @@
                     <p>
                         &copy;
                         <span class="d-inline-block">
-                            Derechos Reservados
+                            {{ date('Y') }} Derechos Reservados
                         </span> -
                         <span class="d-inline-block">
-                            DESPACHO JURÍDICO DEL POTOSÍ
+                            DIRECTORIO JURÍDICO DEL POTOSÍ
                         </span>
-                    </p>
-                    <p>
-                        <small>
-                            Powered by <a href="http://www.recursosdigitales.mx">RED RECURSOS DIGITALES</a>
-                        </small>
                     </p>
                 </div>
             </div>
@@ -516,6 +514,7 @@
         <script src="{{ asset('home/js/jquery-3.2.1.min.js') }}"></script>
         <script src="{{ asset('home/js/swiper.jquery.min.js') }}"></script>
         <script src="{{ asset('home/js/jquery.waypoints.min.js') }}"></script>
+        <script src="{{ asset('home/js/masonry.pkgd.min.js') }}"></script>
         <script src="{{ asset('home/js/index.js') }}"></script>
     </body>
 </html>

@@ -77,6 +77,10 @@
             $('.header li').has('a[href=\\#'+section.get(0).id+']').addClass('active').siblings().removeClass('active');
         }, { context: $('main'), offset: function() { return $('.header').height() / 2 } });
 
+        $('.grid').masonry({
+            itemSelector: '.grid-item'
+        });
+
         resize();
     }
 

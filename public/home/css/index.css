@@ -380,6 +380,7 @@ a {
 #news .new {
     position: relative;
     padding: 8px 16px;
+    width: 100%;
 }
 
 #news .new::before {

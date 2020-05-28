@@ -128,4 +128,11 @@ class Article extends Model
         return $this->category->name;
     }
 
+    public function getImageUrlAttribute()
+    {
+        if ($this->article_image) {
+            return url(config('blogger.filemanager.upload_path').'/'.$this->article_image);
+        }
+    }
+
 }

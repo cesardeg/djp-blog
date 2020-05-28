@@ -18,7 +18,7 @@ class HomepageController extends Controller
             return (object) [
                 'title' => $article->title,
                 'content' => substr(html_entity_decode(strip_tags($article->content)), 0, 512),
-                'article_image' => $article->article_image,
+                'image_url' => $article->image_url,
                 'published_at' => $article->published_at,
             ];
         });
@@ -125,11 +125,17 @@ class HomepageController extends Controller
             'message' => 'required',
         ]);
 
-        $admin = User::where('email', config('blogger.admin_email'))->firstOrFail();
+        $admin =  User::updateOrCreate(
+            ['email' => config('blogger.admin_email')], []
+        );
 
         $admin->notify(new ContactFormNotification($request));
 
-        return response()->json(['success' => true]);
+        if ($request->wantsJson()) {
+            return response()->json(['success' => true]);
+        }
+
+        return redirect()->back()->with(['success' => 'Mensaje enviado. Nos pondremos en contacto pronto.']);
     }
 
     public function search()

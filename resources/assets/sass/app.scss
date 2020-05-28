@@ -332,6 +332,25 @@ $tertiary-color: #0075a0;
       }
   }
 
+  .ui.no-image > .ui.corner.label {
+    position: relative;
+    display: inline-block;
+    height: auto;
+    padding: 0.5833em 0.833em;
+    left: 0;
+    margin-left: 0;
+    background-color: $tertiary-color !important;
+  }
+
+  .ui.no-image .ui.corner.label:after {
+    display: none;
+  }
+
+  .ui.no-image .ui.corner.label .icon {
+    position: static;
+    font-size: inherit;
+  }
+
   .ui.corner.label:after {
       border-right-color: $tertiary-color;
   }
@@ -522,7 +541,7 @@ $tertiary-color: #0075a0;
       }
     }
 
-    h3, {
+    h3 {
       font-family: $opensans-slab, 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
       margin-top: 0;
       margin-bottom: 20px !important;
@@ -585,6 +604,18 @@ $tertiary-color: #0075a0;
       &::after {
           border-right-color: $primary-color;
       }
+  }
+
+  .ui.no-image > .ribbon.label {
+    display: inline-block;
+    left: 0;
+    padding-left: 1.2rem;
+    margin-right: -.2rem;
+    background-color: $secondary-color;
+  }
+
+  .ui.no-image > .ribbon.label:after {
+    display: none;
   }
 
   /***** BACKEND DASHBOARD *****/

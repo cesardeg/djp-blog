@@ -9,7 +9,7 @@
 
   <div class="content">
     <h2><a href="{{url('/blog/'.$article->slug)}}">{{$article->title}}</a></h2>
-    <div class="ui fluid image">
+    <div class="ui fluid {{  str_repeat('no-', !$article->article_image) . 'image' }}">
 
       <div class="ui ribbon label z-index-top">
         <a href="{{ url('categories/'.$article->category->slug) }}" class="white-font">{{$article->category_name}}</a>
@@ -22,6 +22,7 @@
           <i class="{{($article->isFavourite())? 'yellow active': 'white'}} star icon"></i>
         </a>
       @endif
+      @if($article->article_image)
       <a href="{{url('/blog/'.$article->slug)}}">
         <img class="ui fluid image lazy hoverable " data-original="{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder_640x480.png')}}"
                   src="images/placeholder_640x480.png" height="480" width="640" alt="picture">
@@ -29,6 +30,7 @@
           <img class="ui fluid image hoverable" height="480" width="640" src="{{(!empty($article->article_image))? url(config('blogger.filemanager.upload_path').'/'.$article->article_image): url('images/placeholder_640x480.png')}}">
         </noscript> -->
       </a>
+      @endif
 
     </div><!--end of image-->
 
