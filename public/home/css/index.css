@@ -379,7 +379,7 @@ a {
 
 #news .new {
     position: relative;
-    padding: 8px 16px;
+    padding: 8px 16px 16px;
     width: 100%;
 }
 
@@ -401,10 +401,12 @@ a {
     margin: 0;
     font-weight: bold;
     text-transform: uppercase;
+    text-align: justify;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
     color: #4a4a4a;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 #news .new > * + * {
@@ -413,6 +415,10 @@ a {
 
 #news .new p {
     text-align: justify;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
 }
 
 #news .new .img {

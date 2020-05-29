@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Directorio Jurídico del Potosí</title>
         <link rel="stylesheet" href="{{ asset('home/css/normalize.css') }}">
         <link rel="stylesheet" href="{{ asset('home/css/swiper.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('home/css/index.css?v=1') }}">
+        <link rel="stylesheet" href="{{ asset('home/css/index.css?v=1.1') }}">
         <link rel="stylesheet" href="{{ asset('home/css/footer.css?v=1') }}">
     </head>
     <body>
@@ -374,6 +374,7 @@
                             <a href="{{ route('blog') }}">ir a blog</a>
                         </h2>
                         <div class="news grid">
+                            @for($i = 0; $i < 3; $i++)
                             @foreach($articles as $article)
                             <div class="new grid-item">
                                 <h4 class="title">{{ $article->title }}</h4>
@@ -388,6 +389,7 @@
                                 </div>
                             </div>
                             @endforeach
+                            @endfor
                         </div>
                     </div>
                     <div class="col width-md-2 width-lg-2 width-xl-4 width-xxl-2" id="twitter">
