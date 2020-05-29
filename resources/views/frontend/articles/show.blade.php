@@ -102,7 +102,7 @@
 @if($relatedArticles && count($relatedArticles) > 0)
 <div class="ui segments raised center">
   <div class="ui segment">
-  <h2><i class="empty heart icon"></i> Related reads</h2>
+  <h2><i class="empty heart icon"></i> Artículos relacionados </h2>
   <div class="ui relaxed grid">
       <div class="three column row stackable">
         @foreach($relatedArticles as $article)
