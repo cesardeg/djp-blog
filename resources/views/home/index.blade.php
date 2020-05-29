@@ -374,7 +374,6 @@
                             <a href="{{ route('blog') }}">ir a blog</a>
                         </h2>
                         <div class="news grid">
-                            @for($i = 0; $i < 3; $i++)
                             @foreach($articles as $article)
                             <div class="new grid-item">
                                 <h4 class="title">{{ $article->title }}</h4>
@@ -389,7 +388,6 @@
                                 </div>
                             </div>
                             @endforeach
-                            @endfor
                         </div>
                     </div>
                     <div class="col width-md-2 width-lg-2 width-xl-4 width-xxl-2" id="twitter">
