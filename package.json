@@ -28,7 +28,7 @@
     "js-cookie": "^2.1.3",
     "list.js": "^1.2.0",
     "list.pagination.js": "^0.1.1",
-    "prismjs": "^1.5.1",
+    "prismjs": "^1.23.0",
     "rrssb": "^1.11.0",
     "semantic-ui": "^2.2.4",
     "tinymce": "^4.5.0"
